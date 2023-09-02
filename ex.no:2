@@ -1,0 +1,133 @@
+Team6:
+question:
+1.A class called circle is designed as shown in the following class diagram. It contains:
+•	Two private instance variables: radius (of the type double) and color (of the type String), with default value of 1.0 and "red", respectively.
+•	Two overloaded constructors - a default constructor with no argument, and a constructor which takes a double argument for radius.
+•	Two public methods: getRadius() and getArea(), which return the radius and area of this 
+
+program:
+
+package circle;
+import java.util.*;
+/**
+ *
+ * @author 22cseb17
+ */
+public class Circle {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+     circles c=new circles();
+     System.out.print("colour :");
+     System.out.println(c.colour);
+     circles c1=new circles(1.0);
+     System.out.print("radius :");
+     System.out.println(c1.radius);
+     c.getradius();
+     c.getarea();    
+    }
+   
+}
+class circles
+{
+    double radius;
+    String colour;
+    circles(){
+         radius=1.0;
+         colour="red";
+    }
+    circles(double r){
+        radius =r;
+    }
+    void getradius()
+    {
+        System.out.println("enter the radius of the circle :");
+        Scanner obj=new Scanner(System.in);
+        radius=obj.nextDouble();
+        System.out.println("radius"+radius);        
+    }
+    void getarea(){
+        double area=3.14*radius*radius;
+        System.out.println("area="+area);
+    }
+}
+
+
+question:2
+2.	Prepare Electricity bill using Java. 
+Create a class with the following member:
+Consumer number, Consumer name, previous month reading, current month reading, type of EB connection. 
+Calculate the domestic connection bill amount using the following tariff:
+First 100 units – Rs. 1.50 per unit
+101-200 units  –Rs. 3 per unit
+201- 500 units – Rs. 4.50 per unit
+>501 units       – Rs. 7 per unit
+Calculate the commercial connection bill amount using the following tariff:
+First 100 units – Rs. 2.50 per unit
+101-200 units  –Rs. 5 per unit
+201- 500 units – Rs. 6.50 per unit
+>501 units       – Rs. 9 per unit
+
+ program:
+ 
+class Consumer {
+    int consumerNumber;
+    String consumerName;
+    int prevMonthReading;
+    int currMonthReading;
+    String ebType;
+
+    Consumer(int num, String name, int prev, int curr, String type) {
+        consumerNumber = num;
+        consumerName = name;
+        prevMonthReading = prev;
+        currMonthReading = curr;
+        ebType = type;
+    }
+
+    double calculateBill() {
+        int unitsConsumed = currMonthReading - prevMonthReading;
+        double billAmount = 0;
+
+        if (ebType.equalsIgnoreCase("domestic")) {
+            if (unitsConsumed <= 100) {
+                billAmount = unitsConsumed * 1.50;
+            } else if (unitsConsumed <= 200) {
+                billAmount = 100 * 1.50 + (unitsConsumed - 100) * 3;
+            } else if (unitsConsumed <= 500) {
+                billAmount = 100 * 1.50 + 100 * 3 + (unitsConsumed - 200) * 4.50;
+            } else {
+                billAmount = 100 * 1.50 + 100 * 3 + 300 * 4.50 + (unitsConsumed - 500) * 7;
+            }
+        } else if (ebType.equalsIgnoreCase("commercial")) {
+            if (unitsConsumed <= 100) {
+                billAmount = unitsConsumed * 2.50;
+            } else if (unitsConsumed <= 200) {
+                billAmount = 100 * 2.50 + (unitsConsumed - 100) * 5;
+            } else if (unitsConsumed <= 500) {
+                billAmount = 100 * 2.50 + 100 * 5 + (unitsConsumed - 200) * 6.50;
+            } else {
+                billAmount = 100 * 2.50 + 100 * 5 + 300 * 6.50 + (unitsConsumed - 500) * 9;
+            }
+        }
+
+        return billAmount;
+    }
+}
+OUTPUT 
+Enter the number of consumers: 1
+Enter details for consumer 1:
+Consumer Number: 15
+Consumer Name: AAA
+Previous Month Reading: 140
+Current Month Reading: 500
+Type of EB Connection (domestic/commercial): domestic
+
+Electricity Bill Details:
+Consumer 15:
+Name: AAA
+Bill Amount: Rs. 1170.0
+------------------
