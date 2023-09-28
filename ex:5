@@ -37,3 +37,52 @@ public class DistanceConverterApp {
     }
 }
 
+
+//common program
+public class Main {
+    public static void main(String[] args) {
+        // Create instances of the classes from pack1, pack2, and pack3
+        MathOperations mathOperations = new MathOperations();
+        StringOperations stringOperations = new StringOperations();
+        Calculator calculator = new Calculator();
+        int sum = mathOperations.add(5, 3);
+        int difference = mathOperations.subtract(10, 4);
+        String concatenatedString = stringOperations.concatenate("Hello", "World");
+        String reversedString = stringOperations.reverse("Snapchat");
+        int product = calculator.multiply(7, 2);
+        String divisionResult = calculator.divide(10, 5);
+
+        // Print the results to the console
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+        System.out.println("Concatenated String: " + concatenatedString);
+        System.out.println("Reversed String: " + reversedString);
+        System.out.println("Product: " + product);
+        System.out.println("Division Result: " + divisionResult);
+    }
+}
+
+
+
+//common program
+class Parent {
+    protected String protectedProperty = "I am a protected property";
+    String defaultProperty = "I am a default property";
+}
+
+class Child extends Parent {
+    public void accessProperties() {
+        // Accessing the protected property from the subclass
+        System.out.println(protectedProperty);
+
+        // Cannot access the default property from the subclass
+        // System.out.println(defaultProperty); // This will result in a compilation error
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.accessProperties();
+    }
+}
